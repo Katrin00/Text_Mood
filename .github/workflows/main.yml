@@ -12,8 +12,16 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     steps:
-      - name: clone repository to VM
-        uses: actions/checkout@v3
+     - name: Checkout repository
+       uses: actions/checkout@v2
 
-      - name: run programm
-        run: TextAnalyzer.java
+     - name: Set up JDK
+       uses: actions/setup-java@v1
+       with: 
+        java-version: '11'
+
+     - name: Build with Maven
+       run: mvn clean install
+
+     - name: Run tests
+       run: mvn test
