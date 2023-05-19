@@ -3,7 +3,10 @@ name: CI_Actions
 on:
   push:
     branches: 
-      - master
+      - main
+  pull_request:
+    branches:
+      - main
       
 jobs:
   testing:
